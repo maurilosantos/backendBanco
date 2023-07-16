@@ -17,7 +17,7 @@ public class Transferencia {
     @Column(name = "data_transferencia", nullable = false)
     private LocalDateTime dataTransferencia;
 
-    @Column(name = "valor", nullable = false, precision = 20, scale = 2)
+    @Column(name = "valor", nullable = false, precision = 10, scale = 2)
     private BigDecimal valor;
 
     @Column(name = "tipo", nullable = false)
