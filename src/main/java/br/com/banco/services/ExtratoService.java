@@ -67,4 +67,3 @@ public class ExtratoService {
         return saldoTotalNoPeriodo.setScale(2, BigDecimal.ROUND_HALF_UP);
     }
 }
-

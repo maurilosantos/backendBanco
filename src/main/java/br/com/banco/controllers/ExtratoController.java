@@ -27,8 +27,8 @@ public class ExtratoController {
             @RequestParam(value = "numeroConta", required = false) Long numeroConta,
             @RequestParam(value = "dataInicio", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dataInicio,
             @RequestParam(value = "dataFim", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dataFim,
-            @RequestParam(value = "nomeOperador", required = false) String nomeOperador) {
-        List<Transferencia> extrato = extratoService.obterExtratoBancario(numeroConta, dataInicio, dataFim, nomeOperador);
+            @RequestParam(value = "nomeResponsavel", required = false) String nomeResponsavel) {
+        List<Transferencia> extrato = extratoService.obterExtratoBancario(numeroConta, dataInicio, dataFim, nomeResponsavel);
         return ResponseEntity.ok(extrato);
     }
 
@@ -40,7 +40,6 @@ public class ExtratoController {
         return ResponseEntity.ok(saldoTotal);
     }
 
-
     @GetMapping("/saldo-total-no-periodo")
     public ResponseEntity<BigDecimal> calcularSaldoTotalNoPeriodo(
             @RequestParam(value = "numeroConta", required = false) Long numeroConta,
@@ -50,7 +49,4 @@ public class ExtratoController {
         BigDecimal saldoTotalNoPeriodo = extratoService.calcularSaldoTotalNoPeriodo(extrato, dataInicio, dataFim);
         return ResponseEntity.ok(saldoTotalNoPeriodo);
     }
-
 }
-
-
